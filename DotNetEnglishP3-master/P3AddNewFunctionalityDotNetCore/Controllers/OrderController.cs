@@ -28,16 +28,23 @@ namespace P3AddNewFunctionalityDotNetCore.Controllers
         [HttpPost]
         public IActionResult Index(OrderViewModel order)
         {
+            // Si le panier est vide, ajout d'un message d'erreur manuel
             if (!((Cart) _cart).Lines.Any())
             {
                 ModelState.AddModelError("", _localizer["CartEmpty"]);
             }
+
+
+
+            // Si le modelState est valide: on valide et on renvoie vers la page "Completed"
             if (ModelState.IsValid)
             {
                 order.Lines = ((Cart) _cart)?.Lines.ToArray();
                 _orderService.SaveOrder(order);
                 return RedirectToAction(nameof(Completed));
             }
+
+            // Si le modelState est invalide: envoi des erreurs avec ajout des erreurs automatiques (complétion des champs)
             else
             {
                 return View(order);

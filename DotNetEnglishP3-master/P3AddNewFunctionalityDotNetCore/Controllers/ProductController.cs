@@ -40,22 +40,22 @@ namespace P3AddNewFunctionalityDotNetCore.Controllers
         [HttpPost]
         public IActionResult Create(ProductViewModel product)
         {
-            List<string> modelErrors = _productService.CheckProductModelErrors(product);           
+            //List<string> modelErrors = _productService.CheckProductModelErrors(product);  // On n'utilise plus cette méthode qui définissait des erreurs manulellement comme des strings         
 
-            foreach (string error in modelErrors)
-            {
-                ModelState.AddModelError("", error);
-            }
+            // On n'itère plus sur la liste des erreurs manuelles (liste de strings)
+            //foreach (string error in modelErrors)
+            //{
+            //    ModelState.AddModelError("", error);
+            //}
 
             if (ModelState.IsValid)
             {
                 _productService.SaveProduct(product);
                 return RedirectToAction("Admin");
             }
-            else
-            {
-                return View(product);
-            }
+
+            return View(product);
+            
         }
 
         [Authorize]

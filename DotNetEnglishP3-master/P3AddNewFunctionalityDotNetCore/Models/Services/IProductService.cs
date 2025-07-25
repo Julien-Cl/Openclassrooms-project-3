@@ -14,7 +14,7 @@ namespace P3AddNewFunctionalityDotNetCore.Models.Services
         void UpdateProductQuantities();
         void SaveProduct(ProductViewModel product);
         void DeleteProduct(int id);
-        List<string> CheckProductModelErrors(ProductViewModel product);
+        //List<string> CheckProductModelErrors(ProductViewModel product); // Je retire ça de l'interface vu que j'ai aussi retiré l'implémentation (on n'utilise plus de liste d'erreurs manuelles sous forme de strings). 
         Task<Product> GetProduct(int id);
         Task<IList<Product>> GetProduct();
     }

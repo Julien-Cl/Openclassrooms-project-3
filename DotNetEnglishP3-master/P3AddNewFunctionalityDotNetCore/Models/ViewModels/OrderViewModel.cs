@@ -13,19 +13,43 @@ namespace P3AddNewFunctionalityDotNetCore.Models.ViewModels
         [BindNever]
         public ICollection<CartLine> Lines { get; set; }
 
-        [Required(ErrorMessage = "ErrorMissingName")]
+        //[Required(ErrorMessage = "Veuillez ajouter votre nom")]
+        [Required(
+        ErrorMessageResourceName = "ErrorMissingName", // On pointe le bon nom d'erreur
+        ErrorMessageResourceType = typeof(P3.Resources.Models.Order) // On pointe la classe définissant cette erreur
+        )]
+        [RegularExpression("^[^0-9]+$", ErrorMessage = "Le prénom ne doit pas contenir de chiffre.")]
         public string Name { get; set; }
 
-        [Required(ErrorMessage = "ErrorMissingAddress")]
+        //[Required(ErrorMessage = "Veuillez ajouter votre adresse")]
+        [Required(
+        ErrorMessageResourceName = "ErrorMissingAddress",
+        ErrorMessageResourceType = typeof(P3.Resources.Models.Order)
+        )]
         public string Address { get; set; }
 
-        [Required(ErrorMessage = "ErrorMissingCity")]
+        //[Required(ErrorMessage = "Veuillez ajouter votre ville")]
+        [Required(
+        ErrorMessageResourceName = "ErrorMissingCity",
+        ErrorMessageResourceType = typeof(P3.Resources.Models.Order)
+        )]
+        [RegularExpression("^[^0-9]+$", ErrorMessage = "La ville ne doit pas contenir de chiffre.")]
         public string City { get; set; }
 
-        [Required(ErrorMessage = "ErrorMissingZipCode")]
+        //[Required(ErrorMessage = "Veuillez ajouter votre code postal")]
+        [Required(
+        ErrorMessageResourceName = "ErrorMissingZipCode",
+        ErrorMessageResourceType = typeof(P3.Resources.Models.Order)
+        )]
+        [RegularExpression("^[0-9]+$", ErrorMessage = "Le code postal doit contenir uniquement des chiffres.")]
         public string Zip { get; set; }
 
-        [Required(ErrorMessage = "ErrorMissingCountry")]
+        //[Required(ErrorMessage = "Veuillez ajouter votre pays")]
+        [Required(
+        ErrorMessageResourceName = "ErrorMissingCountry",
+        ErrorMessageResourceType = typeof(P3.Resources.Models.Order)
+        )]
+        [RegularExpression("^[^0-9]+$", ErrorMessage = "Le pays ne doit pas contenir de chiffre.")]
         public string Country { get; set; }
 
         [BindNever]

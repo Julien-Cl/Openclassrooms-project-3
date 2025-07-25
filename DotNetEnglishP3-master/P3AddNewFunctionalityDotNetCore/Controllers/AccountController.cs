@@ -30,12 +30,15 @@ namespace P3AddNewFunctionalityDotNetCore.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
+        // Cette méthode est appelée quand on appuie sur "Login" dans l'interface administrateur. 
         public async Task<IActionResult> Login(LoginModel loginModel)
         {
             if (ModelState.IsValid)
             {
                 IdentityUser user =
                 await _userManager.FindByNameAsync(loginModel.Name);
+
+                // Problème initial ici: le user est null, donc l'authentification ne fonctionne pas. 
                 if (user != null)
                 {
                     await _signInManager.SignOutAsync();
