@@ -45,6 +45,52 @@ namespace P3.Resources.Models
                 return resourceManager.GetString("ErrorMissingCountry", resourceCulture);
             }
         }
+
+        // Ajout du message pour ErrorInvalidName
+        public static string ErrorInvalidName
+        {
+            get
+            {
+                return resourceManager.GetString("ErrorInvalidName", resourceCulture);
+            }
+        }
+
+
+        // Ajout du message pour ErrorInvalidCity
+        public static string ErrorInvalidCity
+        {
+            get
+            {
+                return resourceManager.GetString("ErrorInvalidCity", resourceCulture);
+            }
+        }
+
+
+
+        // Ajout du message pour ErrorInvalidZipCode
+        public static string ErrorInvalidZipCode
+        {
+            get
+            {
+                return resourceManager.GetString("ErrorInvalidZipCode", resourceCulture);
+            }
+        }
+
+
+
+        // Ajout du message pour ErrorInvalidCountry
+        public static string ErrorInvalidCountry
+        {
+            get
+            {
+                return resourceManager.GetString("ErrorInvalidCountry", resourceCulture);
+            }
+        }
+
+
+
+
+
     }
 }
 

@@ -117,6 +117,18 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ErrorInvalidCity" xml:space="preserve">
+    <value>El nombre de la ciudad no debe contener números.</value>
+  </data>
+  <data name="ErrorInvalidCountry" xml:space="preserve">
+    <value>El nombre del país no debe contener números.</value>
+  </data>
+  <data name="ErrorInvalidName" xml:space="preserve">
+    <value>El nombre no debe contener números.</value>
+  </data>
+  <data name="ErrorInvalidZipCode" xml:space="preserve">
+    <value>El código postal debe contener solo dígitos.</value>
+  </data>
   <data name="ErrorMissingAddress" xml:space="preserve">
     <value>Introduzca una dirección</value>
   </data>
